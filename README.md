@@ -2,22 +2,14 @@
 
 ## Learn Python for Data science #1
 
-Code:
+[Learn Python for Data science #1](https://www.youtube.com/watch?v=T5pRlIbr6gg)
 
-* [Github source code](https://github.com/jlcanela/learn-data/tree/master/learn-python-for-data-science-1)
+Siraj's videos are awesome :)))), @Siraj, when you come to Paris ping me and let's have a drink, you rock !
 
-Videos:
-
-* [Learn Python for Data science #1](https://www.youtube.com/watch?v=T5pRlIbr6gg)
-
-Documentation:
-
-* [Scikit documentation](http://scikit-learn.org/stable/user_guide.html) to find alternate models
-* [Docstring conventions](https://www.python.org/dev/peps/pep-0257/) helpfull to fix pylint errors
+### Playing with the provided code 
 
 What did I learn ?
 
-* Siraj's videos are awesome :)))), @Siraj, when you come to Paris ping me and let's have a drink, you rock !
 * Thanks to some tipos in buggy.py, I discovered that when data are incoherent, DecisionTreeClassifier.predict is returning sometimes 'male', sometimes 'female'
   * caused by mismatch in both X and Y values
   * DecisionTreeClassifier is using [numpy.random.RandomState](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.RandomState.html) according to [doc](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) 
@@ -26,6 +18,48 @@ What did I learn ?
   * [unittest](https://docs.python.org/3/library/unittest.html) is fine to start with
   * Python ecosystem have [a lot](https://wiki.python.org/moin/PythonTestingToolsTaxonomy) of testing tools
   * I'll probably use [behave](https://pypi.python.org/pypi/behave), a BDD style library, later
-* About scikit
-  * [doc](http://scikit-learn.org/stable/documentation.html) looks very good
-  * even found a [classifier comparaison page](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html#sphx-glr-auto-examples-classification-plot-classifier-comparison-py)
+* About Visual Studio Code
+  * I used it for nodeJS development, but look good for python too
+  * pylint enabled by default
+
+### The challenge
+
+1. Use any 3 SciKit-Learn models on this dataset
+1. Compare results
+1. Print the best one
+
+First I dig through the scikit [doc](http://scikit-learn.org/stable/documentation.html) which looks very good.
+I find a [classifier.py](learn-python-for-data-science-1/classifiers.py) code from [classifier comparison page](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html#sphx-glr-auto-examples-classification-plot-classifier-comparison-py).
+
+
+Code:
+
+* [Github source code](https://github.com/jlcanela/learn-data/tree/master/learn-python-for-data-science-1)
+
+
+Documentation:
+
+* [Scikit documentation](http://scikit-learn.org/stable/user_guide.html) to find alternate models
+* [Docstring conventions](https://www.python.org/dev/peps/pep-0257/) helpfull to fix pylint errors
+
+# Tips
+
+## Visual Studio Code - [pylint] C0103:Invalid constant name "clf"
+
+According to [stack overflow](https://stackoverflow.com/questions/25184097/pylint-invalid-constant-name) when a name is not inside a function/class it is considered as a constant. 
+
+Regex to check constant name is ```(([A-Z_][A-Z0-9_]*)|(__.*__))$```. I found it in [pylint documentation](http://pylint-messages.wikidot.com/messages:c0103).
+
+Assuming we cannot change the code, what is the alternate option ? 
+
+First generate a .pylintrc file:
+```
+pylint --generate-rcfile > .pylintrc
+```
+
+and then add C0103 to disable:
+```
+disable=C0103,print-statement,parameter-unpacking,unpacking-in-except,old-raise-syntax,backtick,import-star-module-level,apply-builtin,basestring-builtin,buffer-builtin,cmp-builtin,coerce-builtin,execfile-builtin,file-builtin,long-builtin,raw_input-builtin,reduce-builtin,standarderror-builtin,unicode-builtin,xrange-builtin,coerce-method,delslice-method,getslice-method,setslice-method,no-absolute-import,old-division,dict-iter-method,dict-view-method,next-method-called,metaclass-assignment,indexing-exception,raising-string,reload-builtin,oct-method,hex-method,nonzero-method,cmp-method,input-builtin,round-builtin,intern-builtin,unichr-builtin,map-builtin-not-iterating,zip-builtin-not-iterating,range-builtin-not-iterating,filter-builtin-not-iterating,using-cmp-argument,long-suffix,old-ne-operator,old-octal-literal,suppressed-message,useless-suppression
+```
+
+*et voila* !
