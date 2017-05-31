@@ -1,3 +1,4 @@
+"""Sample code from Siraj class"""
 from sklearn import tree
 
 # [height, weight, shoe size]
