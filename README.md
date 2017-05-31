@@ -31,6 +31,12 @@ What did I learn ?
 First I dig through the scikit [doc](http://scikit-learn.org/stable/documentation.html) which looks very good.
 I find a [classifier.py](learn-python-for-data-science-1/classifiers.py) code from [classifier comparison page](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html#sphx-glr-auto-examples-classification-plot-classifier-comparison-py).
 
+Siraj provided a link to [choose the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/). According to the link for classification with low number of sample: 
+* try with [Linear SVC](http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC)
+* if not ok as not text data, try with [KNeighbors](http://scikit-learn.org/stable/modules/neighbors.html)
+* if still not ok last chance are [SVC](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC) or [ensemble](http://scikit-learn.org/stable/modules/ensemble.html) classifiers
+
+Data set is very small, it seems that decision tree, KNeighbors or SVC are OK. Unfortunately LinearSVC is not OK. 
 
 Code:
 
