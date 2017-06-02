@@ -1,5 +1,46 @@
 # Learn data science and machine learning
 
+## Learn Python for Data science #2
+
+[Learn Python for Data science #2](https://www.youtube.com/watch?v=o_OZdbCzHUA&index=2&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU)
+
+Registered my twitter app and used environment to setup config and avoid storing credentials in public github.
+
+### Playing with the provided code 
+
+What did I learn ?
+
+* Textblob very easy to use, based on nltk, need to download data before using it with
+* but not convinced by sentiment analysis with bag of words ([see counter example](http://blog.leenhardt.name/post/2008/10/21/Twittratr-%3A-how-to-make-a-fuzz-over-nothing))
+
+To download nltk data:
+```
+import nltk
+nltk.download()
+```
+
+### The challenge
+
+1. Copy paste the demo.py file
+1. Register twitter app
+1. Configure credentials with environment variables
+1. Use csv library, caution, need to use 'w' and not 'wb' for file modifier with python3
+
+Siraj provide some documentation:
+* Some details about Sentiment Analysis: https://www.quora.com/How-does-sentiment-analysis-work
+* alchemylanguage which have been superseded by [watson](https://www.ibm.com/watson/developercloud/alchemy-language.html)
+
+
+Code:
+
+* [Github source code](https://github.com/jlcanela/learn-data/tree/master/learn-python-for-data-science-2)
+
+
+Documentation:
+
+* About TextBlob: https://textblob.readthedocs.io/en/dev/
+* Awesome standford course: http://cs224d.stanford.edu/syllabus.html
+
 ## Learn Python for Data science #1
 
 [Learn Python for Data science #1](https://www.youtube.com/watch?v=T5pRlIbr6gg)
